@@ -1,26 +1,30 @@
-document.addEventListener("DOMContentLoaded", function() {
-    const form = document.getElementById("formContacto");
-    
-    form.addEventListener("submit", function(event) {
-        let valid = true;
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("formContacto");
 
-        const nombre = document.getElementById("nombre");
-        const email = document.getElementById("email");
-        const mensaje = document.getElementById("mensaje");
+  form.addEventListener("submit", function (event) {
+    let valid = true;
 
-        if (nombre.value.trim() === "") {
-            alert("Por favor, ingrese su nombre.");
-            valid = false;
-        }
+    const nombre = document.getElementById("nombre");
+    const email = document.getElementById("email");
+    const mensaje = document.getElementById("mensaje");
 
-        if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email.value)) {
-            alert("Por favor, ingrese un correo electrónico válido.");
-            valid = false;
-        }
+    if (nombre.value.trim() === "") {
+      alert("Por favor, ingrese su nombre.");
+      valid = false;
+    }
 
-        
-        if (!valid) {
-            event.preventDefault();
-        }
-    });
+    if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email.value)) {
+      alert("Por favor, ingrese un correo electrónico válido.");
+      valid = false;
+    }
+
+    if (mensaje.value.trim() === "") {
+      alert("Por favor, ingrese un mensaje. ");
+      valid = false;
+    }
+
+    if (!valid) {
+      event.preventDefault();
+    }
+  });
 });
